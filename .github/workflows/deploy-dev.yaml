@@ -1,11 +1,12 @@
 name: deploy-dev
+
 on:
   push:
     branches:
       - develop
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     services:
@@ -58,6 +59,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: meshe41/landmark-devops-app:develop,meshe41/landmark-devops-app:${{ github.sha }}
-          cache-from: type=registry,ref=meshe41/landmark-devops-app:cache
-          cache-to: type=registry,ref=meshe41/landmark-devops-app:cache,mode=max
+          tags: meshe41/mesh-server:develop,meshe41/mesh-server:${{ github.sha }}
+          cache-from: type=registry,ref=meshe41/mesh-server:cache
+          cache-to: type=registry,ref=meshe41/mesh-server:cache,mode=max
