@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: landmarknodejs
+  namespace: staging
+  labels:
+    team: devops  
+    class: class42
+    app: landmarknodejs
+spec:
+  containers:
+  - name: nodejs-app
+    image: meshe41/landmark_nodejsapp:v2
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000
